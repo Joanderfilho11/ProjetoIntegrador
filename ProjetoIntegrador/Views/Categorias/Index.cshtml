@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ProjetoIntegrador.Models.Categoria>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Criar", "Registrar")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Quadras)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quadras)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id=item.CategoriaId }) |
+                @Html.ActionLink("Detalhes", "Detalhes", new { id=item.CategoriaId }) |
+                @Html.ActionLink("Excluir", "Excluir", new { id=item.CategoriaId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
